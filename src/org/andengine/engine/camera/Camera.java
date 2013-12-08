@@ -394,14 +394,16 @@ public class Camera implements IUpdateHandler {
 	}
 
 	private void applySceneRotation(final float[] pCameraSceneCoordinates) {
-		final float rotation = this.mRotation;
+		//TODO scene rotation is reversed, quick dirty hack (-rotation) so this method returns the correct result
+		final float rotation = -this.mRotation;
 		if (rotation != 0) {
 			MathUtils.rotateAroundCenter(pCameraSceneCoordinates, rotation, this.getCenterX(), this.getCenterY()); // TODO Use a Transformation object instead!?!
 		}
 	}
 
 	private void applySceneRotation(final TouchEvent pCameraSceneTouchEvent) {
-		final float rotation = this.mRotation;
+		//TODO scene rotation is reversed, quick dirty hack (-rotation) so this method returns the correct result
+		final float rotation = -this.mRotation;
 
 		if (rotation != 0) {
 			Camera.VERTICES_TMP[Constants.VERTEX_INDEX_X] = pCameraSceneTouchEvent.getX();
@@ -414,7 +416,8 @@ public class Camera implements IUpdateHandler {
 	}
 
 	private void unapplySceneRotation(final float[] pSceneCoordinates) {
-		final float rotation = this.mRotation;
+		//TODO scene rotation is reversed, quick dirty hack (-rotation) so this method returns the correct result
+		final float rotation = -this.mRotation;
 
 		if (rotation != 0) {
 			MathUtils.revertRotateAroundCenter(pSceneCoordinates, rotation, this.getCenterX(), this.getCenterY()); // TODO Use a Transformation object instead!?!
@@ -422,7 +425,8 @@ public class Camera implements IUpdateHandler {
 	}
 
 	private void unapplySceneRotation(final TouchEvent pSceneTouchEvent) {
-		final float rotation = this.mRotation;
+		//TODO scene rotation is reversed, quick dirty hack (-rotation) so this method returns the correct result
+		final float rotation = -this.mRotation;
 
 		if (rotation != 0) {
 			Camera.VERTICES_TMP[Constants.VERTEX_INDEX_X] = pSceneTouchEvent.getX();
